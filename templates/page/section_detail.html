@@ -1,0 +1,14 @@
+{{ section.title }}
+<div>
+    {{ section.description|safe }}
+</div>
+
+<p>Список участников({{ subscribers }}):</p>
+{% for user in section.section.all %}
+<p>{{ user }}</p>
+{% endfor %}
+
+{% if subscribe and request.user.is_student %}
+Подписаться
+{#    TODO: Тут будет форма с кнопкой и инпутом #}
+{% endif %}

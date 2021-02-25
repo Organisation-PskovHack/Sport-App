@@ -33,7 +33,6 @@ class Login(TemplateView):
     def post(self, request):
         username = request.POST.get("login")
         password = request.POST.get("password")
-        print(username, password)
         if username and password:
             user = authenticate(username=username, password=password)
             print(user)
@@ -42,7 +41,7 @@ class Login(TemplateView):
                     login(request, user)
                     return redirect('/')
                 else:
-                    return HttpResponse('Disabled account')
+                    return HttpResponse('Ваш аккаунт еще не активировали')
         else:
             return HttpResponse('Invalid data')
         return redirect("/pizda")

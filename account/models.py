@@ -17,7 +17,3 @@ class User(AbstractUser, UserManager):
 
     def __str__(self):
         return self.first_name
-
-    def get_full_name(self):
-        full_name = '%s %s %s' % (self.last_name, self.first_name, self.patronymic)
-        return full_name.strip()
