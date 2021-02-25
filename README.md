@@ -3,9 +3,9 @@
 Проект разработан в рамках хакатона "СпортХак"
 
 
-
+____
 # Вид JSON-файла :
-> В корне проекта, нужно создать папку local и в нее закинуть config.json 
+> В корне проекта, нужно создать папку local и в нее закинуть config.json    
 > в формате:
 ```
 {
@@ -19,7 +19,7 @@
 }
 
 ```
-
-
-[Front-end разработчик](https://github.com/TabulaWeb)
+____
+# Разработчики:    
+[Front-end разработчик](https://github.com/TabulaWeb)   
 [Back-end разработчик](https://github.com/nicstim)
