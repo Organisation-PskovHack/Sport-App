@@ -6,6 +6,20 @@ from django.views.generic import TemplateView
 from account.forms import UserRegistrationForm
 from account.models import User
 
+import qrcode
+
+
+def create_qr(uid):
+    # имя конечного файла
+    filename = f"user{uid}.png"
+    # генерируем qr-код
+    img = qrcode.make(uid)
+    img.save(f"static/{filename}")
+    # Привязываем QR код к пользователю
+    user = User.objects.get(id=uid)
+    user.qr_path = filename
+    user.save()
+
 
 # Авторизация пользователя
 class Login(TemplateView):
@@ -53,6 +67,7 @@ class Registration(TemplateView):
             new_user = user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
+            create_qr(new_user.id)
             return redirect("/login")
         else:
             return HttpResponse("Invalid data")

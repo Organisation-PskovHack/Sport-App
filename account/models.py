@@ -9,6 +9,7 @@ class User(AbstractUser, UserManager):
     patronymic = models.CharField("Отчество", max_length=130, blank=True)
     is_student = models.BooleanField("Это студент?", default=True, blank=False,
                                      help_text="Убрать, если это преподаватель.")
+    qr_path = models.CharField("Путь к QR коду", blank=True, max_length=210)
 
     class Meta:
         verbose_name = "Пользователь"
