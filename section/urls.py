@@ -5,5 +5,4 @@ app_name = "section"
 
 urlpatterns = [
     path("", homePage.as_view(), name="home"),
-    path("auth/", authPage.as_view(), name="home")
 ]

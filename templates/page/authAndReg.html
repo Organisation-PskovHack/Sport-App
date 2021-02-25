@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Редактировать пользователя
+{% endblock %}
+
+{% block content %}
+
+        <div class="block-auth_form animate__fadeInDown">
+            <img id="form_img-top" src="{% static 'img/background-top.png' %}" alt="">
+            <div class="auth_logo-img">
+                <img src="{% static 'img/auth_logo.png' %}" alt="">
+                <p class="auth_logo-img_title">Псковский<br>барс</p>
+                <div class="auth_logo-img_buttons">
+                    <button class="btn img-button_login">Войти</button>
+                    <button class="btn img-button_register">Регистрация</button>
+                </div>
+            </div>
+            <img id="form_img-bottom" src="{% static 'img/background-bottom.png' %}" alt="">
+        </div>
+
+        <style>
+            .nav-menu{
+                display: none;
+            }
+
+            .auth_logo-img{
+                z-index: 100;
+            }
+        </style>
+{% endblock %}

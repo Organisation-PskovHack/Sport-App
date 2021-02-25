@@ -31,7 +31,7 @@ class Login(TemplateView):
 
 
 class Registration(TemplateView):
-    template_name = None
+    template_name = "page/register.html"
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -56,3 +56,6 @@ class Registration(TemplateView):
         else:
             return HttpResponse("Invalid data")
 
+
+class LoginAndReg(TemplateView):
+    template_name = "page/authAndReg.html"

@@ -13,6 +13,29 @@
     position: relative;
 }
 
+.auth_logo-img_title{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 35px;
+    color: #3D4D60;
+    text-align: center;
+}
+
+.auth_logo-img_buttons{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 45px;
+    gap: 25px;
+}
+
+.auth_logo-img_buttons .btn{
+    font-size: 25px;
+    color: #3D4D60;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
 #form_img-top {
    position: absolute;
    top: 0;
