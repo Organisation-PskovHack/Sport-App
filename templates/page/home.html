@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Главная</title>
+</head>
+<body>
+    <section class="container">
+        <div class="top_block">
+            <div class="section-home_title">
+                <p>ТРЕНИРОВКИ</p>
+            </div>
+            <div class="micro-stat">
+                <div class="micro-stat_elem">
+                    <p><span>0</span>ТРЕНИРОВКА</p>
+                </div>
+                <div class="micro-stat_elem">
+                    <p><span>0</span>ККАЛ</p>
+                </div>
+                <div class="micro-stat_elem">
+                    <p><span>0</span>МИНУТАХ</p>
+                </div>
+            </div>
+            <div class="train_week">
+                <div class="train_week-title">
+                    <p>Тренировки на неделе</p>
+                    <p>0/1</p>
+                </div>
+                <div class="train_week-timesheet">
+                    <div onclick="monFunc()" class="train_week-timesheet_elem">
+                        <p id="mon"></p>
+                        <p class="day">ПН</p>
+                    </div>
+                    <div onclick="tueFunc()" class="train_week-timesheet_elem">
+                        <p id="tue"></p>
+                        <p class="day">ВТ</p>
+                    </div>
+                    <div onclick="wedFunc()" class="train_week-timesheet_elem">
+                        <p id="wed"></p>
+                        <p class="day">СР</p>
+                    </div>
+                    <div onclick="thuFunc()" class="train_week-timesheet_elem">
+                        <span class="only_count">
+                            <span class="only_count_content">
+                                1
+                            </span>
+                        </span>
+                        <p id="thu"></p>
+                        <p class="day">ЧТ</p>
+                    </div>
+                    <div onclick="friFunc()" class="train_week-timesheet_elem">
+                        <p id="fri"></p>
+                        <p class="day">ПТ</p>
+                    </div>
+                    <div onclick="satFunc()" class="train_week-timesheet_elem">
+                        <p id="sat"></p>
+                        <p class="day">СБ</p>
+                    </div>
+                    <div onclick="sunFunc()" class="train_week-timesheet_elem">
+                        <p id="sun"></p>
+                        <p class="day">ВС</p>
+                    </div> 
+                </div>
+                <div class="train_week-timesheet-detail">
+                    <p id="timesheet-detail_day"></p>
+                    <p id="timesheet-detail_data"></p>
+                    <p id="timesheet-detail_train"></p>
+                    <div id="train-true_text"></div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="block_home-train">
+            <div class="content_home-train">
+                <div class="home-train_title">
+                    <p>Домашняя тренировка</p>
+                </div>
+            </div>
+        </div> -->
+        <nav class="nav-menu">
+            <a href="home.html">
+                <span class="bn_ico"><img src="../assets/img/home.svg" alt=""></span>
+                ГЛАВНАЯ
+            </a>
+            <a href="calendar.html">
+                <span class="bn_ico"><img src="../assets/img/graphic-progression.svg" alt=""></span>
+                ПРОГРЕСС
+            </a>
+            <a href="news.html">
+                <span class="bn_ico"><img src="../assets/img/newspaper.svg" alt=""></span>
+                НОВОСТИ
+            </a>
+            <a href="profile.html">
+                <span class="bn_ico"><img src="../assets/img/user.svg" alt=""></span>
+                ПРОФИЛЬ
+            </a>
+        </nav>
+    </section>
+    <script src="../assets/js/index.js"></script>
+    <script src="../assets/js/locales.js"></script>
+    <script src="../assets/js/moment.js"></script>
+    <script>
+        var now = moment();
+        var monday = now.clone().weekday(1).format('D');
+        var tuesday = now.clone().weekday(2).format('D');
+        var wednesday = now.clone().weekday(3).format('D');
+        var thursday = now.clone().weekday(4).format('D');
+        var friday = now.clone().weekday(5).format('D');
+        var satuday = now.clone().weekday(6).format('D');
+        var sunday = now.clone().weekday(7).format('D');
+
+        document.querySelector('#mon').innerHTML += monday
+        document.querySelector('#tue').innerHTML += tuesday
+        document.querySelector('#wed').innerHTML += wednesday
+        document.querySelector('#thu').innerHTML += thursday
+        document.querySelector('#fri').innerHTML += friday
+        document.querySelector('#sat').innerHTML += satuday
+        document.querySelector('#sun').innerHTML += sunday
+
+        var detailDay = document.querySelector('#timesheet-detail_day')
+        var detailData = document.querySelector('#timesheet-detail_data')
+        var detailTrain = document.querySelector('#timesheet-detail_train')
+        var detailTrainTrue =  document.querySelector('#train-true_text')
+
+        var detailDayText = document.querySelector('#timesheet-detail_day').textContent
+        
+        var monClick = 0
+        var tueClick = 0
+        var wedClick = 0
+        var thuClick = 0
+        var friClick = 0
+        var satClick = 0
+        var sunClick = 0
+        function monFunc(){
+            monClick++
+            detailDay.innerHTML = ''
+            detailData.innerHTML = ''
+            detailTrain.innerHTML = ''
+            detailTrainTrue.innerHTML = ''
+            document.querySelector('.train_week-timesheet_elem').style.background = "inherit"
+            if(monClick % 2 == 0){
+                detailDay.innerHTML = ''
+                detailData.innerHTML = ''
+                detailTrain.innerHTML = ''
+                detailTrainTrue.innerHTML = ''
+                document.querySelector('.train_week-timesheet_elem:nth-child(1)').style.background = "inherit"
+            }else{
+                // document.querySelector('#timesheet-detail_day').innerHTML += "Понедельник"
+                // document.querySelector('#timesheet-detail_data').innerHTML += now.clone().weekday(1).format('D.MM');
+                document.querySelector('.train_week-timesheet_elem:nth-child(1)').style.background = "rgba(199, 50, 222, 0.2)"
+                document.querySelector('#train-true_text').classList.remove('detail_img-train')
+                document.querySelector('#timesheet-detail_train').innerHTML += "Нет тренировок"
+                document.querySelector('.train_week-timesheet-detail').style.marginTop = '10px'
+            }
+        }
+
+        function tueFunc(){
+            tueClick++
+            detailDay.innerHTML = ''
+            detailData.innerHTML = ''
+            detailTrain.innerHTML = ''
+            detailTrainTrue.innerHTML = ''
+            document.querySelector('.train_week-timesheet_elem').style.background = "inherit"
+            if(tueClick % 2 == 0){
+                detailDay.innerHTML = ''
+                detailData.innerHTML = ''
+                detailTrain.innerHTML = ''
+                detailTrainTrue.innerHTML = ''
+                document.querySelector('.train_week-timesheet_elem:nth-child(2)').style.background = "inherit"
+            } else {
+                // document.querySelector('#timesheet-detail_day').innerHTML += "Вторник"
+                // document.querySelector('#timesheet-detail_data').innerHTML += now.clone().weekday(2).format('D.MM');
+                document.querySelector('.train_week-timesheet_elem:nth-child(2)').style.background = "rgba(199, 50, 222, 0.2)"
+                document.querySelector('#train-true_text').classList.remove('detail_img-train')
+                document.querySelector('#timesheet-detail_train').innerHTML += "Нет тренировок"
+                document.querySelector('.train_week-timesheet-detail').style.marginTop = '10px'
+            }
+        }
+
+        function wedFunc(){
+            wedClick++
+            detailDay.innerHTML = ''
+            detailData.innerHTML = ''
+            detailTrain.innerHTML = ''
+            detailTrainTrue.innerHTML = ''
+            document.querySelector('.train_week-timesheet_elem').style.background = "inherit"
+            if(wedClick % 2 == 0){
+                detailDay.innerHTML = ''
+                detailData.innerHTML = '' 
+                detailTrain.innerHTML = ''
+                detailTrainTrue.innerHTML = ''
+                document.querySelector('.train_week-timesheet_elem:nth-child(3)').style.background = "inherit"
+            } else {
+                // document.querySelector('#timesheet-detail_day').innerHTML += "Среда"
+                // document.querySelector('#timesheet-detail_data').innerHTML += now.clone().weekday(3).format('D.MM');
+                document.querySelector('.train_week-timesheet_elem:nth-child(3)').style.background = "rgba(199, 50, 222, 0.2)"
+                document.querySelector('#train-true_text').classList.remove('detail_img-train')
+                document.querySelector('#timesheet-detail_train').innerHTML += "Нет тренировок"
+                document.querySelector('.train_week-timesheet-detail').style.marginTop = '10px'
+            }
+        }
+
+        function thuFunc(){
+            thuClick++
+            detailDay.innerHTML = ''
+            detailData.innerHTML = ''
+            detailTrain.innerHTML = ''
+            detailTrainTrue.innerHTML = ''
+            document.querySelector('.train_week-timesheet_elem').style.background = "inherit"
+            if(thuClick % 2 == 0){
+                detailDay.innerHTML = ''
+                detailData.innerHTML = ''
+                detailTrain.innerHTML = ''
+                detailTrainTrue.innerHTML = ''
+                document.querySelector('.train_week-timesheet_elem:nth-child(4)').style.background = "inherit"
+                document.querySelector('#train-true_text').classList.remove('detail_img-train')
+            } else {
+                // document.querySelector('#timesheet-detail_day').innerHTML += "Четверг"
+                // document.querySelector('#timesheet-detail_data').innerHTML += now.clone().weekday(4).format('D.MM');
+                document.querySelector('.train_week-timesheet_elem:nth-child(4)').style.background = "rgba(199, 50, 222, 0.2)"
+                document.querySelector('#train-true_text').classList.add('detail_img-train')
+                document.querySelector('#train-true_text').innerHTML += "<p>Плавание</p>"
+                document.querySelector('#train-true_text').innerHTML += "<p>09:00 - 10:00</p>"
+                document.querySelector('.train_week-timesheet-detail').style.marginTop = '10px'
+            }
+        }
+
+        function friFunc(){
+            friClick++
+            detailDay.innerHTML = ''
+            detailData.innerHTML = ''
+            detailTrain.innerHTML = ''
+            detailTrainTrue.innerHTML = ''
+            document.querySelector('.train_week-timesheet_elem').style.background = "inherit"
+            if(friClick % 2 == 0){
+                detailDay.innerHTML = ''
+                detailData.innerHTML = ''
+                detailTrain.innerHTML = ''
+                document.querySelector('.train_week-timesheet_elem:nth-child(5)').style.background = "inherit"
+                detailTrainTrue.innerHTML = ''
+            } else {
+                // document.querySelector('#timesheet-detail_day').innerHTML += "Пятница"
+                // document.querySelector('#timesheet-detail_data').innerHTML += now.clone().weekday(5).format('D.MM');
+                document.querySelector('.train_week-timesheet_elem:nth-child(5)').style.background = "rgba(199, 50, 222, 0.2)"
+                document.querySelector('#train-true_text').classList.remove('detail_img-train')
+                document.querySelector('#timesheet-detail_train').innerHTML += "Нет тренировок"
+                document.querySelector('.train_week-timesheet-detail').style.marginTop = '10px'
+            }
+        }
+
+        function satFunc(){
+            satClick++
+            detailDay.innerHTML = ''
+            detailData.innerHTML = ''
+            detailTrain.innerHTML = ''
+            document.querySelector('.train_week-timesheet_elem').style.background = "inherit"
+            detailTrainTrue.innerHTML = ''
+            if(satClick % 2 == 0){
+                detailDay.innerHTML = ''
+                detailData.innerHTML = ''
+                detailTrain.innerHTML = ''
+                detailTrainTrue.innerHTML = ''
+                document.querySelector('.train_week-timesheet_elem:nth-child(6)').style.background = "inherit"
+            } else {
+                // document.querySelector('#timesheet-detail_day').innerHTML += "Суббота"
+                // document.querySelector('#timesheet-detail_data').innerHTML += now.clone().weekday(6).format('D.MM');
+                document.querySelector('.train_week-timesheet_elem:nth-child(6)').style.background = "rgba(199, 50, 222, 0.2)"
+                document.querySelector('#train-true_text').classList.remove('detail_img-train')
+                document.querySelector('#timesheet-detail_train').innerHTML += "Нет тренировок"
+                document.querySelector('.train_week-timesheet-detail').style.marginTop = '10px'
+            }
+        }
+
+        function sunFunc(){
+            sunClick++
+            detailDay.innerHTML = ''
+            detailData.innerHTML = ''
+            detailTrain.innerHTML = ''
+            detailTrainTrue.innerHTML = ''
+            document.querySelector('.train_week-timesheet_elem').style.background = "inherit"
+            if(sunClick%2 == 0){
+                detailDay.innerHTML = ''
+                detailData.innerHTML = ''
+                detailTrain.innerHTML = ''
+                detailTrainTrue.innerHTML = ''
+                document.querySelector('.train_week-timesheet_elem:nth-child(7)').style.background = "inherit"
+            } else {
+                // document.querySelector('#timesheet-detail_day').innerHTML += "Воскресенье"
+                // document.querySelector('#timesheet-detail_data').innerHTML += now.clone().weekday(7).format('D.MM');
+                document.querySelector('.train_week-timesheet_elem:nth-child(7)').style.background = "rgba(199, 50, 222, 0.2)"
+                document.querySelector('#train-true_text').classList.remove('detail_img-train')
+                document.querySelector('#timesheet-detail_train').innerHTML += "Нет тренировок"
+                document.querySelector('.train_week-timesheet-detail').style.marginTop = '10px'
+            }
+        }
+    </script>
+</body>
+</html>

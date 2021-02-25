@@ -1,0 +1,232 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+.container{
+    max-width: 417px;
+    margin: 0px auto;
+    background-color: #d1d1d1;
+    height: 100vh;
+    position: relative;
+}
+
+.block-auth_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    margin-top: -0.625em;
+    padding: 0px 2%;
+}
+
+.auth_form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth_form-title{
+    margin-bottom: 15px;
+}
+
+.nav-menu {
+    max-height: 100px;
+    user-select: none;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: #fff;
+}
+
+.nav-menu a {
+    font-size: 12px;
+    padding: 6px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #76787a;
+    font-weight: 600;
+}
+
+.top_block{
+    height: 28%;
+    background: linear-gradient(39deg, rgba(188, 0, 217, 0.7961607142857143) 36%, rgba(100, 0, 115, 0.801875) 65%);
+    padding: 15px 4% 0px 4%;
+    border-bottom-right-radius: 45px;
+}
+
+body{
+    background: url(../img/background.jpg);
+    backdrop-filter: blur(3px);
+}
+
+.section-home_title{
+    color: #fff;
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    margin-bottom: 30px;
+}
+
+.micro-stat{
+    display: flex;
+    justify-content: space-between;
+}
+
+.micro-stat_elem p{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 300;
+}
+
+.micro-stat_elem{
+    color: #fff;
+}
+
+.micro-stat_elem span{
+    font-size: 25px;
+    font-weight: 800;
+}
+
+
+.train_week-timesheet{
+    display: flex;
+    justify-content: space-between;
+}
+
+.train_week{
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px 2%;
+    margin-top: 25px;
+}
+
+.train_week-title p{
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.train_week-timesheet_elem{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    position: relative;
+    padding: 4px;
+border-radius: 5px;
+}
+
+.day{
+    font-weight: 600;
+}
+
+.train_week-timesheet_elem{
+    cursor: pointer;
+}
+
+.only_count {
+    position: absolute;
+    background: #ff4d4d;
+    color: #fff;
+    z-index: 10;
+    text-align: center;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 13px;
+    left: 15px;
+    top: -5px;
+    width: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.only_count_content {
+    position: absolute;
+}
+
+.train_week-title{
+    display: flex;
+    justify-content: space-between;
+}
+
+#timesheet-detail_train{
+    text-align: center;
+    font-size: 18px;
+    margin: 15px 0px;
+    font-weight: 600;
+}
+
+.detail_img-train{
+    background: url(../img/swimmer.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 10px 10px 10px 55px;
+    border-radius: 5px;
+    background-position-x: 5px;
+    background-color: #80d4ff;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.block_home-train{
+    margin-top: 40px;
+}
+
+.content_home-train{
+    padding: 15px 4%;
+    padding-top: 15px;
+    background: #fff;
+    -webkit-box-shadow: 0px 0px 40px -16px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 40px -16px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 40px -16px rgba(0,0,0,0.75);
+}
+
+.home-train_title{
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+@media screen and (min-width: 417px) {
+.bn_ico img{
+    font-size: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.2vw;
+    height: 100%;
+    margin: 0px auto;
+        min-width: 46px;
+        min-height: 73px;
+}
+}
+    
+
+@media screen and (min-width: 320px) {
+.bn_ico {
+    width: 8vw;
+    height: 8vw;
+    max-width: 80px;
+    max-height: 75px;
+}
+}
+    
