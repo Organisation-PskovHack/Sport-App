@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Редактировать пользователя
+{% endblock %}
+
+{% block content %}
+        <div class="home-header">
+            <div class="home_header-title">
+                <p>Главная</p>
+            </div>
+        </div>
+        <h1>User - {{student.id}}: <span id="QRid"></span></h1>
+        <div class="training_schedule">
+            <form method="post">
+                <input id="studentID" type="hidden" name="student">
+                <input type="submit">
+            </form>
+        </div>
+        <button onclick="showVideo()">отсканировать код</button>
+        <div id="loadingMessage"></div>
+        <canvas id="canvas" hidden></canvas>
+        <div id="output" hidden>
+            <div id="outputMessage"></div>
+            <div hidden><b>Data:</b> <span id="outputData"></span></div>
+        </div>
+    <script>
+        document.querySelector('#canvas').hidden = true;
+
+
+
+        var video = document.createElement("video");
+        var canvasElement = document.getElementById("canvas");
+        var canvas = canvasElement.getContext("2d");
+        var loadingMessage = document.getElementById("loadingMessage");
+        var outputContainer = document.getElementById("output");
+        var outputMessage = document.getElementById("outputMessage");
+        var outputData = document.getElementById("outputData");
+
+    
+    
+    function drawLine(begin, end, color) {
+      canvas.beginPath();
+      canvas.moveTo(begin.x, begin.y);
+      canvas.lineTo(end.x, end.y);
+      canvas.lineWidth = 4;
+      canvas.strokeStyle = color;
+      canvas.stroke();
+    }
+
+    function showVideo() {
+    if(outputData.innerText == ''){
+        console.log('Я пустгой')
+    } else {
+        outputData.innerText = ''
+    }
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
+      video.srcObject = stream;
+      video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+      video.play();
+      requestAnimationFrame(tick);
+    });
+    }
+    
+    function tick() {
+      loadingMessage.innerText = "⌛ Loading video..."
+      if (video.readyState === video.HAVE_ENOUGH_DATA) {
+        loadingMessage.hidden = true;
+        canvasElement.hidden = false;
+        outputContainer.hidden = false;
+
+        canvasElement.height = video.videoHeight;
+        canvasElement.width = video.videoWidth;
+        canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+        var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+        var code = jsQR(imageData.data, imageData.width, imageData.height, {
+          inversionAttempts: "dontInvert",
+        });
+        if (code) {
+          drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
+          drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
+          drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
+          drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
+          outputMessage.hidden = true;
+          outputData.parentElement.hidden = false;
+          outputData.innerText = code.data;
+        } else {
+          outputMessage.hidden = false;
+          outputData.parentElement.hidden = true;
+        }
+      }
+
+      if(outputData.innerText == ''){
+        console.log('Я пустой')
+      } else {
+        let dataQR = outputData.innerText
+        document.querySelector('#QRid').innerHTML = dataQR
+        document.querySelector('#studentID').setAttribute('value', `${dataQR}`)
+        document.querySelector('#canvas').hidden = true;
+        console.log('Я с кодом')
+        return dataQR
+      }
+
+
+      requestAnimationFrame(tick);
+    }
+    
+    let dataQR = outputData.innerText
+    
+    </script>
+{% endblock %}

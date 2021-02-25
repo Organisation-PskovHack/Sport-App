@@ -14,6 +14,7 @@ class homePage(TemplateView):
 
 
 class ScanQR(TemplateView):
+    template_name = "page/scan.html"
 
     def get(self, request, *args, **kwargs):
         try:
