@@ -13,6 +13,7 @@ class Login(TemplateView):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return redirect("/")
+        return super().get(request, *args, **kwargs)
 
     def post(self, request):
         username = request.POST.get("login", None)
