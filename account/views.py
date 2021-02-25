@@ -8,7 +8,7 @@ from account.models import User
 
 # Авторизация пользователя
 class Login(TemplateView):
-    template_name = None
+    template_name = "page/auth.html"
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
