@@ -42,22 +42,18 @@ class Registration(TemplateView):
             return redirect("/")
         return super().get(request, *args, **kwargs)
 
+    def get_context_data(self, **kwargs):
+        context = super(Registration, self).get_context_data()
+        context["form"] = UserRegistrationForm()
+        return context
+
     def post(self, request):
-        username = request.POST.get("login", None)
-        password = request.POST.get("password", None)
-        password_again = request.POST.get("password_again", None)
-        if username and password and password_again:
-            if password == password_again:
-                if User.objects.filter(username=username):
-                    return HttpResponse('Пользователь с таким именем уже существует.')
-                else:
-                    user = User()
-                    user.username = username
-                    user.password = password
-                    user.save()
-                    return redirect("/login")
-            else:
-                return HttpResponse("Invalid data")
+        user_form = UserRegistrationForm(request.POST)
+        if user_form.is_valid():
+            new_user = user_form.save(commit=False)
+            new_user.set_password(user_form.cleaned_data['password'])
+            new_user.save()
+            return redirect("/login")
         else:
             return HttpResponse("Invalid data")
 
