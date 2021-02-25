@@ -35,12 +35,30 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     padding: 7px;
+    outline: none;
+}
+
+.head_auth{
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.head_auth-arrow img{
+    position: absolute;
+    top: 0;
+    left: 4%;
 }
 
 #form_img-top {
-   position: absolute;
-   top: 0;
-   left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 #form_img-bottom{

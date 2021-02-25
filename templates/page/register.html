@@ -6,10 +6,40 @@
 {% endblock %}
 
 {% block content %}
+        
+        <div class="head_auth">
+                <div class="head_auth-arrow" onclick="return window.location.href='/auth/'">
+                    <img src="{% static 'img/arrow_back.svg' %}" alt="">
+                </div>
+                <div class="head_auth-title">
+                    <p>Регистрация</p>
+                </div>
+            </div>
         <div class="block-auth_form">
             <img id="form_img-top" src="{% static 'img/background-top.png' %}" alt="">
+            
             <form method="post">
-                {{ form.as_p }}
+                <div class="form_username">
+                    {{ form.username }}
+                </div>
+                <div class="form_first-name">
+                    {{ form.first_name }}
+                </div>
+                <div class="form_last-name">
+                    {{ form.last_name }}
+                </div>
+                <div class="form_patronymic">
+                    {{ form.patronymic }}
+                </div>
+                <div class="form_group">
+                    {{ form.group }}
+                </div>
+                <div class="form_password">
+                    {{ form.password }}
+                </div>
+                <div class="form_password2">
+                    {{ form.password2 }}
+                </div>
                 {% csrf_token %}
                 <p><input type="submit" value="Регистрация"></p>
             </form>
