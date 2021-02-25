@@ -13,8 +13,8 @@
                 <img src="{% static 'img/auth_logo.png' %}" alt="">
                 <p class="auth_logo-img_title">Псковский<br>барс</p>
                 <div class="auth_logo-img_buttons">
-                    <button class="btn img-button_login">Войти</button>
-                    <button class="btn img-button_register">Регистрация</button>
+                    <button class="btn img-button_login" onclick="return window.location.href='login/'">Войти</button>
+                    <button class="btn img-button_register" onclick="return window.location.href='register/'">Регистрация</button>
                 </div>
             </div>
             <img id="form_img-bottom" src="{% static 'img/background-bottom.png' %}" alt="">
@@ -28,5 +28,27 @@
             .auth_logo-img{
                 z-index: 100;
             }
+
+            .img-button_login{
+                background: #B8D8F9;
+                border: 0px;
+                border-radius: 20px;
+                -webkit-box-shadow: 0px 8px 0px 0px rgba(164,193,223,1);
+                -moz-box-shadow: 0px 8px 0px 0px rgba(164,193,223,1);
+                box-shadow: 0px 8px 0px 0px rgba(164,193,223,1);
+                cursor: pointer;
+            }
+
+            .img-button_register{
+                cursor: pointer;
+                background: #FE7B89;
+                border: 0px;
+                border-radius: 20px;
+                -webkit-box-shadow: 0px 8px 0px 0px rgba(229,108,121,1);
+                -moz-box-shadow: 0px 8px 0px 0px rgba(229,108,121,1);
+                box-shadow: 0px 8px 0px 0px rgba(229,108,121,1);
+            }
+
+
         </style>
 {% endblock %}
