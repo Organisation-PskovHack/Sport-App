@@ -41,17 +41,35 @@
                     {{ form.password2 }}
                 </div>
                 {% csrf_token %}
-                <p><input type="submit" value="Регистрация"></p>
+                <p><input class="button_register" type="submit" value="Регистрация"></p>
             </form>
             <img id="form_img-bottom" src="{% static 'img/background-bottom.png' %}" alt="">
         </div>
 
         <style>
         .block-auth_form form{
-            z-index: 1000;
+                z-index: 1000;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
         }
             .nav-menu{
                 display: none;
+            }
+
+            .button_register{
+                color: #fff;
+    font-size: 25px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    border-radius: 20px;
+    padding: 10px 0px;
+    border: 0px!important;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+    background-color: #FE7B89!important;
+
             }
         </style>
 

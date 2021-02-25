@@ -76,6 +76,7 @@
 
 .form_register input{
     font-size: 20px;
+    outline: none;
     padding: 13px;
     font-family: 'Montserrat',
     sans-serif;
