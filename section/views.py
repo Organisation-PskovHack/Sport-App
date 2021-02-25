@@ -55,6 +55,7 @@ class SectionDetail(DetailView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(SectionDetail, self).get_context_data()
+        context["subscribers"] = len(UserSection.objects.filter(section_id=self.pk))
         if self.user:
             if UserSection.objects.get(user_id=self.user.id, section_id=self.pk):
                 context["subscribe"] = False
@@ -63,3 +64,14 @@ class SectionDetail(DetailView):
         else:
             context["subscribe"] = True
         return context
+
+    def post(self, request, pk):
+        # TODO: сделать возможность отписки
+        section = request.POST.get("section")
+        user = request.user
+        user_section = UserSection()
+        user_section.section_id = section
+        user_section.user_id = user.id
+        user_section.save()
+        return redirect(f"/section/{pk}/")
+
