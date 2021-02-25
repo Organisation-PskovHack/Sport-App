@@ -7,16 +7,16 @@
 
 {% block content %}
         <div class="block-auth_form">
-            <img src="{% static 'img/background-top.png' %}" alt="">
-            <div class="auth_form-title">
-                <h1>Авторизация</h1>
-            </div>
+            <img id="form_img-top" src="{% static 'img/background-top.png' %}" alt="">
             <form class="auth_form" action="POST">
+                <div class="auth_form-title">
+                    <h1>Авторизация</h1>
+                </div>
                 <input type="text" placeholder="ЛОГИН">
                 <input type="text" placeholder="ПАРОЛЬ">
                 <button>Войти</button>
             </form>
-            <img src="{% static 'img/background-bottom.png' %}" alt="">
+            <img id="form_img-bottom" src="{% static 'img/background-bottom.png' %}" alt="">
         </div>
 
         <style>
