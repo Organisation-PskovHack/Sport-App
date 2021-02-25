@@ -16,4 +16,4 @@ class User(AbstractUser, UserManager):
         verbose_name_plural = "Пользователи"
 
     def __str__(self):
-        return f"{self.last_name} {self.first_name} {self.patronymic}"
+        return self.first_name
