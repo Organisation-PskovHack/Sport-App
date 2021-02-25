@@ -1,0 +1,11 @@
+{% for object in section_list %}
+    <div>
+    <h1>{{ object.title }}</h1>
+    <div>
+        {{ object.description|safe }}
+    </div>
+    {% if request.user.is_authenticated %}
+        <p><a href="/section/{{ object.id }}/">Подробнее</a></p>
+    {% endif %}
+    </div>
+{% endfor %}

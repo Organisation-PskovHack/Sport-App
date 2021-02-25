@@ -1,0 +1,12 @@
+{{ section.title }}
+<div>
+    {{ section.description|safe }}
+</div>
+
+{% for user in section.section.all %}
+<p>{{ user }}</p>
+{% endfor %}
+
+{% if subscribe and request.user.is_student %}
+Подписаться
+{% endif %}
