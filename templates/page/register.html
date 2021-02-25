@@ -8,19 +8,18 @@
 {% block content %}
         <div class="block-auth_form">
             <img id="form_img-top" src="{% static 'img/background-top.png' %}" alt="">
-            <form class="auth_form" method="POST">
+            <form method="post">
+                {{ form.as_p }}
                 {% csrf_token %}
-                <div class="auth_form-title">
-                    <h1>Авторизация</h1>
-                </div>
-                <input type="text" name="login" placeholder="ЛОГИН">
-                <input type="text" name="password" placeholder="ПАРОЛЬ">
-                <button>Войти</button>
+                <p><input type="submit" value="Регистрация"></p>
             </form>
             <img id="form_img-bottom" src="{% static 'img/background-bottom.png' %}" alt="">
         </div>
 
         <style>
+        .block-auth_form form{
+            z-index: 1000;
+        }
             .nav-menu{
                 display: none;
             }
