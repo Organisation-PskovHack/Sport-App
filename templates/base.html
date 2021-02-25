@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
     <title>SportHack</title>
 </head>
 <body>
@@ -15,9 +16,27 @@
     <div class="container">
         {% block content %}
         {% endblock %}
+        <nav class="nav-menu">
+            <a href="home.html">
+                <span class="bn_ico"><img src="{% static 'img/home.svg' %}" alt=""></span>
+                ГЛАВНАЯ
+            </a>
+            <a href="calendar.html">
+                <span class="bn_ico"><img src="{% static 'img/graphic-progression.svg' %}" alt=""></span>
+                ПРОГРЕСС
+            </a>
+            <a href="news.html">
+                <span class="bn_ico"><img src="{% static 'img/newspaper.svg' %}" alt=""></span>
+                НОВОСТИ
+            </a>
+            <a href="profile.html">
+                <span class="bn_ico"><img src="{% static 'img/user.svg' %}" alt=""></span>
+                ПРОФИЛЬ
+            </a>
+        </nav>
     </div>
-    <nav>
-
-    </nav>
+    <script src="{% static 'js/index.js' %}"></script>
+    <script src="{% static 'js/locales.js' %}"></script>
+    <script src="{% static 'js/moment.js' %}"></script>
 </body>
 </html>
