@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <script src="{% static 'js/index.js' %}"></script>
+    <script src="{% static 'js/locales.js' %}"></script>
+    <script src="{% static 'js/moment.js' %}"></script>
+    <script src="{% static 'js/jsQR.js' %}"></script>
     <title>SportHack</title>
 </head>
 <body>
@@ -16,27 +20,6 @@
     <div class="container">
         {% block content %}
         {% endblock %}
-        <nav class="nav-menu">
-            <a href="home.html">
-                <span class="bn_ico"><img src="{% static 'img/home.svg' %}" alt=""></span>
-                ГЛАВНАЯ
-            </a>
-            <a href="calendar.html">
-                <span class="bn_ico"><img src="{% static 'img/graphic-progression.svg' %}" alt=""></span>
-                ПРОГРЕСС
-            </a>
-            <a href="news.html">
-                <span class="bn_ico"><img src="{% static 'img/newspaper.svg' %}" alt=""></span>
-                НОВОСТИ
-            </a>
-            <a href="profile.html">
-                <span class="bn_ico"><img src="{% static 'img/user.svg' %}" alt=""></span>
-                ПРОФИЛЬ
-            </a>
-        </nav>
     </div>
-    <script src="{% static 'js/index.js' %}"></script>
-    <script src="{% static 'js/locales.js' %}"></script>
-    <script src="{% static 'js/moment.js' %}"></script>
 </body>
 </html>
