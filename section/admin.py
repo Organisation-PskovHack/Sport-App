@@ -4,14 +4,11 @@ from .models import Section, Workout
 
 @admin.register(Section)
 class SectionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'slug', 'is_active',)
-    list_filter = ('is_active',)
+    list_display = ('id', 'user', 'title',)
+    list_filter = ('user',)
     list_display_links = ('title',)
-    prepopulated_fields = {'slug': ('title',)}
     fieldsets = (
-        (None, {'fields': ('title', 'slug')}),
-        ("Основная информация", {'fields': ('description',)}),
-        ("Отображение", {'fields': ('is_active', ), }),
+        (None, {'fields': ('title', 'user')}),
     )
 
 
