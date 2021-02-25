@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
 
+from account.forms import UserRegistrationForm
 from account.models import User
 
 
@@ -16,10 +17,12 @@ class Login(TemplateView):
         return super().get(request, *args, **kwargs)
 
     def post(self, request):
-        username = request.POST.get("login", None)
-        password = request.POST.get("password", None)
+        username = request.POST.get("login")
+        password = request.POST.get("password")
+        print(username, password)
         if username and password:
             user = authenticate(username=username, password=password)
+            print(user)
             if user is not None:
                 if user.is_active:
                     login(request, user)
@@ -28,6 +31,7 @@ class Login(TemplateView):
                     return HttpResponse('Disabled account')
         else:
             return HttpResponse('Invalid data')
+        return redirect("/pizda")
 
 
 class Registration(TemplateView):
@@ -36,6 +40,7 @@ class Registration(TemplateView):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return redirect("/")
+        return super().get(request, *args, **kwargs)
 
     def post(self, request):
         username = request.POST.get("login", None)
