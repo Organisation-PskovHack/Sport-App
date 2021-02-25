@@ -9,7 +9,7 @@
         <div class="block-auth_form">
             <img id="form_img-top" src="{% static 'img/background-top.png' %}" alt="">
             <form class="auth_form" method="POST">
-                
+                {% csrf_token %}
                 <div class="auth_form-title">
                     <h1>Авторизация</h1>
                 </div>
