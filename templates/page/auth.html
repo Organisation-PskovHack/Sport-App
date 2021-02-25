@@ -6,13 +6,18 @@
 {% endblock %}
 
 {% block content %}
+        <div class="head_auth">
+                <div class="head_auth-arrow" onclick="return window.location.href='/auth/'">
+                    <img src="{% static 'img/arrow_back.svg' %}" alt="">
+                </div>
+                <div class="head_auth-title">
+                    <p>Авторизация</p>
+                </div>
+            </div>
         <div class="block-auth_form">
             <img id="form_img-top" src="{% static 'img/background-top.png' %}" alt="">
             <form class="auth_form" method="POST">
                 {% csrf_token %}
-                <div class="auth_form-title">
-                    <h1>Авторизация</h1>
-                </div>
                 <input type="text" name="login" placeholder="ЛОГИН">
                 <input type="password" name="password" placeholder="ПАРОЛЬ">
                 <button>Войти</button>
@@ -23,6 +28,28 @@
         <style>
             .nav-menu{
                 display: none;
+            }
+
+            .auth_form input{
+                    font-size: 20px;
+                    padding: 13px;
+                    font-family: 'Montserrat',
+                    sans-serif;
+                    border:3px solid #3D4D60;
+                    background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .auth_form button{
+                color: #fff;
+                font-size: 25px;
+                font-family: 'Montserrat';
+                font-weight: 500;
+                border-radius: 20px;
+                padding: 10px 0px;
+                border: 0px;
+                outline: none;
+                cursor: pointer;
+                background-color: #FE7B89;
             }
         </style>
 {% endblock %}

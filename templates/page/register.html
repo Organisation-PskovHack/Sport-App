@@ -18,7 +18,7 @@
         <div class="block-auth_form">
             <img id="form_img-top" src="{% static 'img/background-top.png' %}" alt="">
             
-            <form method="post">
+            <form class="form_register" method="post">
                 <div class="form_username">
                     {{ form.username }}
                 </div>
@@ -54,4 +54,14 @@
                 display: none;
             }
         </style>
+
+        <script>
+            document.querySelector('.form_username input').setAttribute("placeholder", 'Логин')
+            document.querySelector('.form_first-name input').setAttribute("placeholder", 'Имя')
+            document.querySelector('.form_last-name input').setAttribute("placeholder", 'Фамилия')
+            document.querySelector('.form_patronymic input').setAttribute("placeholder", 'Отчество')
+            document.querySelector('.form_group input').setAttribute("placeholder", 'Группа')
+            document.querySelector('.form_password input').setAttribute("placeholder", 'Пароль')
+            document.querySelector('.form_password2 input').setAttribute("placeholder", 'Пароль')
+        </script>
 {% endblock %}

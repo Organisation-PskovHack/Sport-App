@@ -60,13 +60,42 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-top: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #fff;
+}
+
+.auth_form input{
+        font-size: 20px;
+        padding: 13px;
+        font-family: 'Montserrat',
+        sans-serif;
+        border:3px solid #3D4D60;
+        background-color: rgba(255, 255, 255, 0.1);
+}
+
+.form_register input{
+    font-size: 20px;
+    padding: 13px;
+    font-family: 'Montserrat',
+    sans-serif;
+    border:3px solid #3D4D60;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .head_auth-arrow img{
     position: absolute;
     top: 0;
     left: 4%;
+    cursor: pointer;
+    transform: translateY(100%);
+}
+
+.head_auth-title p{
+    font-size: 25px;
+    font-weight: 500;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #form_img-top {
