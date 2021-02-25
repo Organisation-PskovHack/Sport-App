@@ -8,21 +8,24 @@
 .container{
     max-width: 417px;
     margin: 0px auto;
-    background-color: #d1d1d1;
+    background-color: #fff;
     height: 100vh;
     position: relative;
 }
 
-.block-auth_form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: absolute;
-    top: 45%;
-    width: 100%;
-    margin-top: -0.625em;
-    padding: 0px 2%;
+.block-auth_form{
+    height: 100%;
+    position: relative;
+}
+
+.block-auth_form::after{
+    background: url('../img/background-top.png');
+    background-size: cover;
+}
+
+.block-auth_form::before{
+    background: url('../img/background-bottom.png');
+     background-size: cover;
 }
 
 .auth_form{
