@@ -13,6 +13,13 @@
     position: relative;
 }
 
+#form_img-top {
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+    
+
 .block-auth_form{
     height: 100%;
     position: relative;
