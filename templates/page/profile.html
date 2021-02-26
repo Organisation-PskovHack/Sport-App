@@ -8,9 +8,9 @@
 {% block content %}
         <div class="block_home-menu animate__animated">
             <nav class="nav_home-menu">
-                <div onclick="return window.location.href='/profile/'" class="profile">
+                <div onclick="return window.location.href='/profile/{{ request.user.id }}/'" class="profile">
                     <img src="{% static 'img/profile.svg' %}" alt="">
-                    <a href="/profile/">Профиль</a>
+                    <a href="/profile/{{ request.user.id }}">Профиль</a>
                 </div>
                 <div onclick="return window.location.href='/'" class="home">
                     <img src="{% static 'img/calend.svg' %}" alt="">
@@ -38,11 +38,12 @@
         </div>
         <div class="profile_contact-data">
             <div class="profile_contact-data-info">
-                <p class="name_person">Табула Алексей Максимович</p>
-                <p class="group_person">Группа 0103-01</p>
+                <p class="name_person">{{ user.last_name }} {{ user.first_name }} {{ user.patronymic }}</p>
+                <p class="group_person">{{ user.last_login }}</p>
+                <p class="group_person">{{ user.group }}</p>
             </div>
             <div class="profile_contact-data-img">
-                <img src="{% static 'img/img_profile.png' %}" alt="">
+                <img src="{% static user.qr_path %}" alt="">
             </div>
         </div>
         <div class="profile_report">

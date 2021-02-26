@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DetailView
 
 from account.forms import UserRegistrationForm
 from account.models import User
@@ -74,3 +74,8 @@ class Registration(TemplateView):
 
 class LoginAndReg(TemplateView):
     template_name = "page/authAndReg.html"
+
+
+class Profile(DetailView):
+    template_name = "page/profile.html"
+    model = User

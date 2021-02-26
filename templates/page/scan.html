@@ -14,6 +14,8 @@
         <h1>User - {{student.id}}: <span id="QRid"></span></h1>
         <div class="training_schedule">
             <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="start">
                 <input id="studentID" type="hidden" name="student">
                 <input type="submit">
             </form>
@@ -24,6 +26,26 @@
         <div id="output" hidden>
             <div id="outputMessage"></div>
             <div hidden><b>Data:</b> <span id="outputData"></span></div>
+        </div>
+        <div>
+            <h1>Студенты</h1>
+            <div>
+                {% for user in users %}
+                <form method="post">
+                     {% csrf_token %}
+                    <input type="hidden" name="action" value="end">
+                    <input type="hidden" name="student" value="{{ user.user_id }}">
+                    {% if user.start_time == user.end_time %}
+                    <p>{{ user.user }} <button type="submit">Завершить тренировку</button></p>
+                    {% else %}
+                        <p>{{ user.user }}</p>
+                        <p>Начало тренировки: {{ user.start_time }}</p>
+                        <p>Конец тренировки: {{ user.end_time }}</p>
+                    {% endif %}
+
+                </form>
+                {% endfor %}
+            </div>
         </div>
     <script>
         document.querySelector('#canvas').hidden = true;
