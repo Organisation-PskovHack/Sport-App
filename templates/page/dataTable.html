@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Редактировать пользователя
+{% endblock %}
+
+{% block content %}
+        <div class="block_home-menu animate__animated">
+            <nav class="nav_home-menu">
+                <div onclick="return window.location.href='/profile/'" class="profile">
+                    <img src="{% static 'img/profile.svg' %}" alt="">
+                    <a href="/profile/">Профиль</a>
+                </div>
+                <div onclick="return window.location.href='/'" class="home">
+                    <img src="{% static 'img/calend.svg' %}" alt="">
+                    <a href="/">Главная</a>
+                </div>
+                <div onclick="return window.location.href='/sections/'" class="club">
+                    <img src="{% static 'img/sect.svg' %}" alt="">
+                    <a href="/sections/">Клубы</a>
+                </div>
+                <div class="norms">
+                    <img src="{% static 'img/normativ.svg' %}" alt="">
+                    <a href="#">Нормативы</a>
+                </div>
+
+                <img class="bars_nav-menu" src="{% static 'img/bars.jpg' %}" alt="">
+            </nav>
+        </div>
+        <div class="home-header">
+            <div id="button_showMenu" onclick="activateMenu()" class="home_menu">
+                <img src="{% static 'img/buttonMenu.jpg' %}" alt="">
+            </div>
+            <div class="home_header-title">
+                <p>База данных</p>
+            </div>
+        </div>
+
+        
+    <script>
+        var counterMenu = 0
+        function activateMenu(){
+            counterMenu++
+            if(counterMenu%2 == 0){
+                document.querySelector(".block_home-menu").style.display = 'none'
+            } else {
+                document.querySelector(".block_home-menu").style.display = 'block'
+            }
+        }
+    </script>
+{% endblock %}

@@ -10,4 +10,5 @@ urlpatterns = [
     # path("section/<int:pk>/", SectionDetail.as_view(), name="section_list"),TestSectionDetail
     path("section/", TestSectionDetail.as_view(), name="section_list"),
     path("profile/", Profile.as_view(), name="Profile"),
+    path("data/", DataTable.as_view(), name="DataTable"),
 ]

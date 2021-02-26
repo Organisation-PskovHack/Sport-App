@@ -81,3 +81,7 @@ class Profile(TemplateView):
 
 class TestSectionDetail(TemplateView):
     template_name = "page/section_detail.html"
+
+
+class DataTable(TemplateView):
+    template_name = "page/dataTable.html"
