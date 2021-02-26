@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Section, Workout, UserSection
+from .models import Section, Workout, UserSection, SectionTraining
 
 
 class UserList(admin.StackedInline):
@@ -27,9 +27,19 @@ class SectionAdmin(admin.ModelAdmin):
 
 @admin.register(Workout)
 class PublicationAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'section')
+    list_display = ('id', 'user', 'workout')
     list_display_links = ('user',)
     fieldsets = (
-        (None, {'fields': ('user', 'section')}),
+        (None, {'fields': ('user', 'workout')}),
         ("Основная информация", {'fields': ('date', 'start_time', 'end_time')}),
     )
+
+
+@admin.register(SectionTraining)
+class SectionTrainingAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'section')
+    # list_display_links = ('user',)
+    # fieldsets = (
+    #     (None, {'fields': ('user', 'workout')}),
+    #     ("Основная информация", {'fields': ('date', 'start_time', 'end_time')}),
+    # )

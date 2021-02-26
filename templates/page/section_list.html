@@ -10,7 +10,7 @@
             <nav class="nav_home-menu">
                 <div onclick="return window.location.href='/profile/'" class="profile">
                     <img src="{% static 'img/profile.svg' %}" alt="">
-                    <a href="/profile/">Профиль</a>
+                    <a href="/profile/{{ request.user.id }}/">Профиль</a>
                 </div>
                 <div onclick="return window.location.href='/'" class="home">
                     <img src="{% static 'img/calend.svg' %}" alt="">
@@ -35,6 +35,7 @@
             <div class="home_header-title">
                 <p>Клубы</p>
             </div>
+<<<<<<< Updated upstream
         </div> 
         <div class="club-elements">
             {% for object in section_list %}
@@ -50,12 +51,22 @@
             {% endfor %}
             {% for object in section_list %}
             <div class="club-elem" onclick="return window.location.href='/section/{{ object.id }}/'">
+=======
+        </div>
+        {% for section in section_list %}
+        <div class="club-elements">
+            <div class="club-elem" onclick="return window.location.href='/section/{{ section.id }}/'">
+>>>>>>> Stashed changes
                 <div class="club-elem_ovner">
-                    <div class="club-elem_img">
-                        <img src="{% static 'img/basketball-ball.svg' %}" alt="">
-                    </div>
+{#                    <div class="club-elem_img">#}
+{#                        <img src="{% static 'img/basketball-ball.svg' %}" alt="">#}
+{#                    </div>#}
                     <div class="club-elem_title">
+<<<<<<< Updated upstream
                         <p>{{ object.title }}</p>
+=======
+                        <p>{{ section.title }}</p>
+>>>>>>> Stashed changes
                     </div>
                 </div>
                 <div class="club-elem_arrow">
@@ -64,6 +75,7 @@
             </div>
             {% endfor %}
         </div>
+    {% endfor %}
     <script>
         var counterMenu = 0
         function activateMenu(){

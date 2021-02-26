@@ -18,17 +18,33 @@ class Section(models.Model):
         return self.title
 
 
+class SectionTraining(models.Model):
+    title = models.CharField("Название тренировки", max_length=130)
+    description = RichTextUploadingField('Информая о тренировке')
+    date = models.CharField("Дата тренировки", max_length=130)
+    is_active = models.BooleanField("Активна?", default=True, blank=False)
+    section = models.ForeignKey(Section, verbose_name="Тринировка", on_delete=models.CASCADE,
+                                related_name="training")
+
+    class Meta:
+        verbose_name = "Тренировка"
+        verbose_name_plural = "Тренировки"
+
+    def __str__(self):
+        return self.title
+
+
 class Workout(models.Model):
     user = models.ForeignKey(User, verbose_name="Пользователь", on_delete=models.CASCADE, related_name="user_workout")
-    section = models.ForeignKey(Section, verbose_name="Секция", on_delete=models.CASCADE,
+    workout = models.ForeignKey(SectionTraining, verbose_name="Тринировка", on_delete=models.CASCADE,
                                 related_name="section_workout")
     start_time = models.TimeField("Время начала тренировки", blank=True)
     end_time = models.TimeField("Время окончания тренировки", blank=True)
-    date = models.DateField("Дата тренировки", default=timezone.now)
+    date = models.CharField("Дата тренировки", max_length=130)
 
     class Meta:
-        verbose_name_plural = "Тренировки"
-        verbose_name = "Тренировка"
+        verbose_name_plural = "Тренировки пользователя"
+        verbose_name = "Тренировка пользователя"
 
 
 class UserSection(models.Model):
