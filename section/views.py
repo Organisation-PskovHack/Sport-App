@@ -59,7 +59,7 @@ class ScanQR(DetailView):
             workout = Workout.objects.get(user_id=int(student))
             workout.end_time = datetime.datetime.now().time()
             workout.save()
-            return redirect(f"/section/{self.kwargs['pk']}/{work_id}/")
+            return redirect(f"/section/{self.kwargs['pk']}/scan/{work_id}/")
         return HttpResponse("invalid data")  # Заглушка
 
 
