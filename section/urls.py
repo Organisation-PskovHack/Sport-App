@@ -11,4 +11,6 @@ urlpatterns = [
     path("section/", TestSectionDetail.as_view(), name="section_list"),
     path("profile/", Profile.as_view(), name="Profile"),
     path("data/", DataTable.as_view(), name="DataTable"),
+    path("trainer/", TrainerHome.as_view(), name="TrainerHome"),
+    path("traner_traning/", TrainerTraning.as_view(), name="TrainerTraning"),
 ]

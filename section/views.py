@@ -85,3 +85,9 @@ class TestSectionDetail(TemplateView):
 
 class DataTable(TemplateView):
     template_name = "page/dataTable.html"
+
+class TrainerHome(TemplateView):
+    template_name = "page/traner_home.html"
+
+class TrainerTraning(TemplateView):
+    template_name = "page/traner_traning.html"

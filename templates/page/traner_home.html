@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Редактировать пользователя
+{% endblock %}
+
+{% block content %}
+        <div class="block_home-menu animate__animated">
+            <nav class="nav_home-menu">
+                <div onclick="return window.location.href='/trainer/'" class="home">
+                    <img src="{% static 'img/calend.svg' %}" alt="">
+                    <a href="/trainer/">Главная</a>
+                </div>
+
+                <img class="bars_nav-menu" src="{% static 'img/bars.jpg' %}" alt="">
+            </nav>
+        </div>
+        <div class="home-header">
+            <div id="button_showMenu" onclick="activateMenu()" class="home_menu">
+                <img src="{% static 'img/buttonMenu.jpg' %}" alt="">
+            </div>
+            <div class="home_header-title">
+                <p>Главная</p>
+            </div>
+        </div>
+
+        <div class="training_schedule">
+            <div class="training_schedule-title">
+                <p>График тренировок</p>
+            </div>
+            <div class="training_schedule-elements">
+                <div class="training_schedule-elem">
+                    <p id="mo"></p>
+                    <p>ПН</p>
+                </div>
+                <div class="training_schedule-elem">
+                    <p id="tu"></p>
+                    <p>ВТ</p>
+                </div>
+                <div class="training_schedule-elem">
+                    <p id="we"></p>
+                    <p>СР</p>
+                </div>
+                <div class="training_schedule-elem">
+                    <p id="th"></p>
+                    <p>ЧТ</p>
+                </div>
+                <div class="training_schedule-elem">
+                    <p id="fr"></p>
+                    <p>ПТ</p>
+                </div>
+                <div class="training_schedule-elem">
+                    <p id="sa"></p>
+                    <p>СБ</p>
+                </div>
+                <div class="training_schedule-elem">
+                    <p id="su"></p>
+                    <p>ВС</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="traner_sections">
+            <div class="traner_sect" onclick="return window.location.href='/traner_traning/'">
+                <div class="traner_sect-title">
+                    <p>Секция баскетбола (юноши)</p>
+                </div>
+                <div class="traner_sect-num">
+                    <p>10 участников</p>
+                </div>
+            </div>
+        </div>
+    <script>
+        
+        var counterMenu = 0
+        function activateMenu(){
+            counterMenu++
+            if(counterMenu%2 == 0){
+                document.querySelector(".block_home-menu").style.display = 'none'
+            } else {
+                document.querySelector(".block_home-menu").style.display = 'block'
+            }
+        }
+    </script>
+{% endblock %}

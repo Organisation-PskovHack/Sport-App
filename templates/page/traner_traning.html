@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Редактировать пользователя
+{% endblock %}
+
+{% block content %}
+        <div class="block_home-menu animate__animated">
+            <nav class="nav_home-menu">
+                <div onclick="return window.location.href='/trainer/'" class="home">
+                    <img src="{% static 'img/calend.svg' %}" alt="">
+                    <a href="/trainer/">Главная</a>
+                </div>
+
+                <img class="bars_nav-menu" src="{% static 'img/bars.jpg' %}" alt="">
+            </nav>
+        </div>
+        <div class="home-header">
+            <div id="button_showMenu" onclick="activateMenu()" class="home_menu">
+                <img src="{% static 'img/buttonMenu.jpg' %}" alt="">
+            </div>
+            <div class="home_header-title">
+                <p>Главная</p>
+            </div>
+        </div>
+        
+        <div class="teraner_traning-content">
+            <div class="traning-content_title">
+                <p>Секция баскетбола (юноши)</p>
+            </div>
+
+            <div class="traning-filter_content">
+                <label class="filter_checkbox_label_line container_checkbox_line"><input type="checkbox" class="filter_checkbox filter_checkbox_line" id="students"> <span class="checkmark_alt_line">Участники</span></label>
+                <label class="filter_checkbox_label_line container_checkbox_line"><input type="checkbox" class="filter_checkbox filter_checkbox_line" id="traning"> <span class="checkmark_alt_line">Тренировки</span></label>
+                <label class="filter_checkbox_label_line container_checkbox_line"><input type="checkbox" class="filter_checkbox filter_checkbox_line" id="create-traning"> <span class="checkmark_alt_line">Создать тренировку</span></label>
+            </div>
+
+            <div class="students-list">
+                <img src="{% static 'img/allUsers.svg' %}" alt="">
+                <p>Юзер нейм</p>
+            </div>
+
+            <div class="traning-list">
+                тренировка
+            </div>
+
+            <div class="form-create_traning">
+                тут будет форма
+            </div>
+        </div>
+        <style>
+            .container_checkbox_line {
+                display: -webkit-box;
+                display: flex;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+                -webkit-box-align: center;
+                align-items: center;
+                position: relative;
+                cursor: pointer;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                height: 35px;
+            }
+
+            .container_checkbox_line input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+            .filter_checkbox_line {
+                margin: 0;
+                display: none;
+            }
+
+            .filter_checkbox {
+                height: 20px;
+                width: 20px;
+                margin: 0 10px 0 0;
+                position: relative;
+                top: 3px;
+            }
+
+            .container_checkbox_line .checkmark_alt_line {
+                top: 0;
+                left: 5px;
+                width: 100%;
+                background-color: #C1CBD6;
+                border-radius: 3px;
+                box-sizing: border-box;
+                padding: 7px 5px;
+                font-size: 14px;
+                font-weight: bold;
+                font-family: 'Open Sans';
+                color: #5A738F;
+            }
+
+            .container_checkbox_line input:checked~.checkmark_alt_line {
+                background-color: #B9D8F9;
+                border-color: #B9D8F9;
+                font-size: 14px;
+                font-weight: bold;
+                font-family: 'Open Sans';
+                color: #5A738F;
+            }
+        </style>
+
+    <script>
+        
+        var counterMenu = 0
+        function activateMenu(){
+            counterMenu++
+            if(counterMenu%2 == 0){
+                document.querySelector(".block_home-menu").style.display = 'none'
+            } else {
+                document.querySelector(".block_home-menu").style.display = 'block'
+            }
+        }
+
+        $("#students").click(function(){
+            if($(this).prop("checked")){
+                $('.students-list').show()
+            } else{
+                $('.students-list').hide()
+            }
+        })
+
+        $("#traning").click(function(){
+            if($(this).prop("checked")){
+                $('.traning-list').show()
+            } else{
+                $('.traning-list').hide()
+            }
+        })
+
+        $("#create-traning").click(function(){
+            if($(this).prop("checked")){
+                $('.form-create_traning').show()
+            } else{
+                $('.form-create_traning').hide()
+            }
+        })
+    </script>
+{% endblock %}

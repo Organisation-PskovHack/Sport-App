@@ -154,6 +154,18 @@
     margin-bottom: 15px;
 }
 
+.traner_sections{
+    padding: 0px 4%;
+}
+
+.traner_sect{
+    background-color: #C1CBD6;
+    border-radius: 20px;
+    padding: 15px 20px;
+}
+
+
+
 .club_details-timetable table{
     background-color: #fff;
     border: 13px solid rgba(185, 216, 249, 0.4);
@@ -309,6 +321,56 @@
     font-weight: bold;
     font-family: 'Open Sans';
     color: #FE7B89;
+}
+
+.traner_sect-title p{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Open Sans';
+    color: #5A738F;
+    margin-bottom: 10px;
+}
+
+.traner_sect-num p{
+font-size: 12px;
+font-weight: bold;
+font-family: 'Open Sans';
+color: #5A738F;
+}
+
+.students-list{
+    display: none;
+}
+
+.traning-list{
+    display: none;
+}
+
+.form-create_traning{
+    display: none;
+}
+
+.traner_sect{
+    cursor: pointer;
+}
+
+.traning-filter_content{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.teraner_traning-content {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 0px 4%;
+}
+
+.traning-content_title p{
+    color: #5A738F;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Open Sans';
 }
 
 .traning-elem_data p{
@@ -626,8 +688,8 @@ body{
 
 #form_img-top {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -45px;
+    left: -45px;
     width: 100%;
 }
 
@@ -697,9 +759,14 @@ body{
     border-bottom-right-radius: 45px;
 }
 
+.auth_logo-img img{
+    width: 163px;
+    height: 163px;
+}
+
 body{
     background: url(../img/background.jpg);
-    backdrop-filter: blur(3px);
+    background-size: contain;
 }
 
 .section-home_title{
