@@ -438,6 +438,7 @@ color: #5A738F;
 
 .block_home-menu{
     position: absolute;
+    overflow: hidden;
     top: 0;
     left: 0;
     height: 100%;
