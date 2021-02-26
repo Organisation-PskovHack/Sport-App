@@ -115,12 +115,4 @@ class SectionDetail(DetailView):
 
         return redirect(f"/section/{pk}/")
 
-<<<<<<< Updated upstream
-class TestSectionDetail(TemplateView):
-    template_name = "page/section_detail.html"
 
-
-class DataTable(TemplateView):
-    template_name = "page/dataTable.html"
-=======
->>>>>>> Stashed changes
