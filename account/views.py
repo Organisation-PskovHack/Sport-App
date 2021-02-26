@@ -44,7 +44,7 @@ class Login(TemplateView):
                     return HttpResponse('Ваш аккаунт еще не активировали')
         else:
             return HttpResponse('Invalid data')
-        return redirect("/pizda")
+        return redirect("/login")
 
 
 class Registration(TemplateView):
