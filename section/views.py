@@ -78,3 +78,6 @@ class SectionDetail(DetailView):
 
 class Profile(TemplateView):
     template_name = "page/profile.html"
+
+class TestSectionDetail(TemplateView):
+    template_name = "page/section_detail.html"

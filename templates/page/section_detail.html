@@ -1,14 +1,106 @@
-{{ section.title }}
-<div>
-    {{ section.description|safe }}
-</div>
+{% extends "base.html" %}
+{% load static %}
 
-<p>Список участников({{ subscribers }}):</p>
-{% for user in section.section.all %}
-<p>{{ user }}</p>
-{% endfor %}
+{% block title %}
+    Редактировать пользователя
+{% endblock %}
 
-{% if subscribe and request.user.is_student %}
-Подписаться
-{#    TODO: Тут будет форма с кнопкой и инпутом #}
-{% endif %}
+{% block content %}
+        <div class="block_home-menu animate__animated">
+            <nav class="nav_home-menu">
+                <div onclick="return window.location.href='/profile/'" class="profile">
+                    <img src="{% static 'img/profile.svg' %}" alt="">
+                    <a href="/profile/">Профиль</a>
+                </div>
+                <div onclick="return window.location.href='/'" class="home">
+                    <img src="{% static 'img/calend.svg' %}" alt="">
+                    <a href="/">Главная</a>
+                </div>
+                <div onclick="return window.location.href='/sections/'" class="club">
+                    <img src="{% static 'img/sect.svg' %}" alt="">
+                    <a href="/sections/">Клубы</a>
+                </div>
+                <div class="norms">
+                    <img src="{% static 'img/normativ.svg' %}" alt="">
+                    <a href="#">Нормативы</a>
+                </div>
+
+                <img class="bars_nav-menu" src="{% static 'img/bars.jpg' %}" alt="">
+            </nav>
+        </div>
+        <div class="home-header">
+            <div id="button_showMenu" onclick="activateMenu()" class="home_menu">
+                <img src="{% static 'img/buttonMenu.jpg' %}" alt="">
+            </div>
+            <div class="home_header-title">
+                <p>Клубы</p>
+            </div>
+        </div>
+        <div class="club_details">
+            <div class="club_details-title">
+                <p>Секция баскетбола</p>
+            </div>
+
+            <div class="club_details-descr">
+                <p>Баскетбол является одним из ведущих видов спорта в организации секционной работы в нашем университете.</p>
+                <p>Женская и мужская сборные команды по баскетболу являются постоянными участниками Спартакиады вузов Псковской области, городских и областных соревнований. Ребята неоднократно становились победителями и призерами различных соревнований.</p>
+                <p>На занятиях вы получите основные и необходимые для игры в баскетбол знания, умения и навыки. Большое внимание уделяется техническим аспектам игры, основная часть занятий посвящена непосредственно игре в баскетбол. Приходите, и мы научим вас играть в эту увлекательную и зрелищную игру, поможем раскрыть ваши таланты.</p>
+            </div>
+
+            <div class="club_details-сoach">
+                <div class="club_details-coach">
+                    <p>Тренеры</p>
+                </div>
+
+                <div class="club_details-coach_card">
+                    <div class="coach_card-info">
+                        <div class="coach_card-info-name">Тарасюк Наталия</div>
+                        <div class="coach_card-info-regalia">Заслуженный тренер России, мастер спорта СССР</div>
+                        <div class="coach_card-info-phone">Телефон: 8 (8920) 53-00-09</div>
+                        <div class="coach_card-info-mail">Е-mail: iamsport@mail.ru</div>
+                    </div>
+                    <div class="coach_card-img">
+                        <img src="{% static 'img/img_couch.svg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="club_details-timetable">
+                <div class="club_details-timetable_title">
+                    <p>Расписание</p>
+                </div>
+                <table>
+                    <tr>
+                        <td>
+                            Среда
+                        </td>
+                        <td>
+                            20.00-21.30
+                        </td>
+                        <td rowspan="2"> В зале на ул. Толстого, 4</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Пятница
+                        </td>
+                        <td>
+                            19.00-20.30 
+                            (юноши)
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <a href="">Записаться в секцию</a>
+        </div>
+    <script>
+        var counterMenu = 0
+        function activateMenu(){
+            counterMenu++
+            if(counterMenu%2 == 0){
+                document.querySelector(".block_home-menu").style.display = 'none'
+            } else {
+                document.querySelector(".block_home-menu").style.display = 'block'
+            }
+        }
+    </script>
+{% endblock %}
