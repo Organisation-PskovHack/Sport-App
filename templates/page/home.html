@@ -6,7 +6,32 @@
 {% endblock %}
 
 {% block content %}
+        <div class="block_home-menu animate__animated">
+            <nav class="nav_home-menu">
+                <div onclick="return window.location.href='/profile/'" class="profile">
+                    <img src="{% static 'img/profile.svg' %}" alt="">
+                    <a href="/profile/">Профиль</a>
+                </div>
+                <div onclick="return window.location.href='/'" class="home">
+                    <img src="{% static 'img/calend.svg' %}" alt="">
+                    <a href="/">Главная</a>
+                </div>
+                <div class="club">
+                    <img src="{% static 'img/sect.svg' %}" alt="">
+                    <a href="#">Клубы</a>
+                </div>
+                <div class="norms">
+                    <img src="{% static 'img/normativ.svg' %}" alt="">
+                    <a href="#">Нормативы</a>
+                </div>
+
+                <img class="bars_nav-menu" src="{% static 'img/bars.jpg' %}" alt="">
+            </nav>
+        </div>
         <div class="home-header">
+            <div id="button_showMenu" onclick="activateMenu()" class="home_menu">
+                <img src="{% static 'img/buttonMenu.jpg' %}" alt="">
+            </div>
             <div class="home_header-title">
                 <p>Главная</p>
             </div>
@@ -17,41 +42,105 @@
             </div>
             <div class="training_schedule-elements">
                 <div class="training_schedule-elem">
-                    <p></p>
-                    <p></p>
+                    <p id="mo"></p>
+                    <p>ПН</p>
                 </div>
                 <div class="training_schedule-elem">
-                    <p></p>
-                    <p></p>
+                    <p id="tu"></p>
+                    <p>ВТ</p>
                 </div>
                 <div class="training_schedule-elem">
-                    <p></p>
-                    <p></p>
+                    <p id="we"></p>
+                    <p>СР</p>
                 </div>
                 <div class="training_schedule-elem">
-                    <p></p>
-                    <p></p>
+                    <p id="th"></p>
+                    <p>ЧТ</p>
                 </div>
                 <div class="training_schedule-elem">
-                    <p></p>
-                    <p></p>
+                    <p id="fr"></p>
+                    <p>ПТ</p>
                 </div>
                 <div class="training_schedule-elem">
-                    <p></p>
-                    <p></p>
+                    <p id="sa"></p>
+                    <p>СБ</p>
                 </div>
                 <div class="training_schedule-elem">
-                    <p></p>
-                    <p></p>
+                    <p id="su"></p>
+                    <p>ВС</p>
                 </div>
             </div>
         </div>
-        <button onclick="showVideo()">отсканировать код</button>
-        <div id="loadingMessage"></div>
-        <canvas id="canvas" hidden></canvas>
-        <div id="output" hidden>
-            <div id="outputMessage"></div>
-            <div hidden><b>Data:</b> <span id="outputData"></span></div>
+
+        <div class="training_detail">
+            <div class="training_detail-title">
+                <p>Тренировки</p>
+            </div>
+            <div class="training_detail-elements">
+                <div class="training_detail-elem">
+                    <div class="traning-elem_imgAndInfo">
+                        <div class="traning-elem_img">
+                            <img src="{% static 'img/sectionLogo.jpg' %}" alt="">
+                        </div>
+                        <div class="traning-elem_info">
+                            <p class="traning-elem_info-title">
+                                Баскетбол
+                            </p>
+                            <p class="traning-elem_info-trenerName">
+                                Тарасюк Наталия
+                            </p>
+                            <p class="traning-elem_info-trenerTime">
+                                Общее время: 1 ч.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="traning-elem_data">
+                        <p>23.02.2021</p>
+                    </div>
+                </div>
+                <div class="training_detail-elem">
+                    <div class="traning-elem_imgAndInfo">
+                        <div class="traning-elem_img">
+                            <img src="{% static 'img/sectionLogo.jpg' %}" alt="">
+                        </div>
+                        <div class="traning-elem_info">
+                            <p class="traning-elem_info-title">
+                                Баскетбол
+                            </p>
+                            <p class="traning-elem_info-trenerName">
+                                Тарасюк Наталия
+                            </p>
+                            <p class="traning-elem_info-trenerTime">
+                                Общее время: 1 ч.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="traning-elem_data">
+                        <p>23.02.2021</p>
+                    </div>
+                </div>
+                <div class="training_detail-elem">
+                    <div class="traning-elem_imgAndInfo">
+                        <div class="traning-elem_img">
+                            <img src="{% static 'img/sectionLogo.jpg' %}" alt="">
+                        </div>
+                        <div class="traning-elem_info">
+                            <p class="traning-elem_info-title">
+                                Баскетбол
+                            </p>
+                            <p class="traning-elem_info-trenerName">
+                                Тарасюк Наталия
+                            </p>
+                            <p class="traning-elem_info-trenerTime">
+                                Общее время: 1 ч.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="traning-elem_data">
+                        <p>23.02.2021</p>
+                    </div>
+                </div>
+            </div>
         </div>
     <script>
 
@@ -65,5 +154,24 @@
         var satuday = now.clone().weekday(6).format('D');
         var sunday = now.clone().weekday(7).format('D');
         console.log(sunday)
+
+        document.querySelector('#mo').innerHTML = monday
+        document.querySelector('#tu').innerHTML = tuesday
+        document.querySelector('#we').innerHTML = wednesday
+        document.querySelector('#th').innerHTML = thursday
+        document.querySelector('#fr').innerHTML = friday
+        document.querySelector('#sa').innerHTML = satuday
+        document.querySelector('#su').innerHTML = sunday
+
+        
+        var counterMenu = 0
+        function activateMenu(){
+            counterMenu++
+            if(counterMenu%2 == 0){
+                document.querySelector(".block_home-menu").style.display = 'none'
+            } else {
+                document.querySelector(".block_home-menu").style.display = 'block'
+            }
+        }
     </script>
 {% endblock %}

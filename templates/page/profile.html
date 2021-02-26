@@ -1,48 +1,144 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <title>Главная</title>
-</head>
-<body>
-    <section class="container">
-        <div class="profile-content">
-            <div class="profile-content_section-contact">
-                <div class="profile-content_photo">
-                    <img src="" alt="">
-                    <p class="profile-content_name"></p>
-                </div>
-            </div> 
-            <div class="profile-content_section-typeSport">
-                
-            </div>
-            <div class="profile-content_section-achiv">
+{% extends "base.html" %}
+{% load static %}
 
-            </div>       
+{% block title %}
+    Редактировать пользователя
+{% endblock %}
+
+{% block content %}
+        <div class="block_home-menu animate__animated">
+            <nav class="nav_home-menu">
+                <div onclick="return window.location.href='/profile/'" class="profile">
+                    <img src="{% static 'img/profile.svg' %}" alt="">
+                    <a href="/profile/">Профиль</a>
+                </div>
+                <div onclick="return window.location.href='/'" class="home">
+                    <img src="{% static 'img/calend.svg' %}" alt="">
+                    <a href="/">Главная</a>
+                </div>
+                <div class="club">
+                    <img src="{% static 'img/sect.svg' %}" alt="">
+                    <a href="#">Клубы</a>
+                </div>
+                <div class="norms">
+                    <img src="{% static 'img/normativ.svg' %}" alt="">
+                    <a href="#">Нормативы</a>
+                </div>
+
+                <img class="bars_nav-menu" src="{% static 'img/bars.jpg' %}" alt="">
+            </nav>
         </div>
-        <nav class="nav-menu">
-            <a href="#">
-                <span class="bn_ico"><img src="../assets/img/home.svg" alt=""></span>
-                ГЛАВНАЯ
-            </a>
-            <a href="#">
-                <span class="bn_ico"><img src="../assets/img/graphic-progression.svg" alt=""></span>
-                ПРОГРЕСС
-            </a>
-            <a href="#">
-                <span class="bn_ico"><img src="../assets/img/newspaper.svg" alt=""></span>
-                НОВОСТИ
-            </a>
-            <a href="#">
-                <span class="bn_ico"><img src="../assets/img/user.svg" alt=""></span>
-                ПРОФИЛЬ
-            </a>
-        </nav>
-    </section>
-    <script src="../assets/js/index.js"></script>
-</body>
-</html>
+        <div class="home-header">
+            <div id="button_showMenu" onclick="activateMenu()" class="home_menu">
+                <img src="{% static 'img/buttonMenu.jpg' %}" alt="">
+            </div>
+            <div class="home_header-title">
+                <p>Профиль</p>
+            </div>
+        </div>
+        <div class="profile_contact-data">
+            <div class="profile_contact-data-info">
+                <p class="name_person">Табула Алексей Максимович</p>
+                <p class="group_person">Группа 0103-01</p>
+            </div>
+            <div class="profile_contact-data-img">
+                <img src="{% static 'img/img_profile.png' %}" alt="">
+            </div>
+        </div>
+        <div class="profile_report">
+            <div class="profile_report-title">
+                <p>Отчет</p>
+            </div>
+        </div>
+
+        <div class="profile_report-general">
+            <div class="report-general">
+                <p class="general-time_text">Общее время всех тренировок:</p>
+                <p class="general-time_num">144 ч.</p>
+            </div>
+            <div class="report-general">
+                <p class="general-section_text">Общее число секций:</p>
+                <p class="general-section_num">4</p>
+            </div>
+        </div>
+         <div class="profile_report-generalDetail">
+             <div class="generalDetail-elements">
+                 <div class="generalDetail-elem">
+                     <div class="generalDetail-elem-title">
+                         <p>Баскетбол</p>
+                     </div>
+                     <div class="generalDetail-elem-stat">
+                        <div class="generalDetail-elem-stat-training">
+                            <p class="generalDetail-elem-stat-title">Тренировки:</p>
+                            <p class="generalDetail-elem-stat-num">30</p>
+                        </div>
+                        <div class="generalDetail-elem-stat-allTime">
+                            <p class="generalDetail-elem-stat-title">Общее время:</p>
+                            <p class="generalDetail-elem-stat-num">60</p>
+                        </div>
+                        <div class="generalDetail-elem-stat-competitions">
+                            <p class="generalDetail-elem-stat-title">Соревнования:</p>
+                            <p class="generalDetail-elem-stat-num">5</p>
+                        </div>
+                     </div>
+                 </div>
+                 <div class="generalDetail-elem">
+                     <div class="generalDetail-elem-title">
+                         <p>Волейбол</p>
+                     </div>
+                     <div class="generalDetail-elem-stat">
+                        <div class="generalDetail-elem-stat-training">
+                            <p class="generalDetail-elem-stat-title">Тренировки:</p>
+                            <p class="generalDetail-elem-stat-num">30</p>
+                        </div>
+                        <div class="generalDetail-elem-stat-allTime">
+                            <p class="generalDetail-elem-stat-title">Общее время:</p>
+                            <p class="generalDetail-elem-stat-num">60</p>
+                        </div>
+                        <div class="generalDetail-elem-stat-competitions">
+                            <p class="generalDetail-elem-stat-title">Соревнования:</p>
+                            <p class="generalDetail-elem-stat-num">5</p>
+                        </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+        <div class="profile_report-achievements">
+            <div class="profile_report-achievements-title">
+                <p>Достижения</p>
+            </div>
+
+            <div class="profile_report-achievements-elements">
+                <div class="profile_report-achievements-elem">
+                    <div class="achievements-elem_img">
+                        <img src="{% static 'img/trophy.svg' %}" alt="">
+                    </div>
+                    <div class="achievements-elem_descr">
+                        <p class="achievements-elem_descr-title">Золотой кубок</p>
+                        <p class="achievements-elem_descr-text">1 место в Региональном соревновании по баскетболу в г. Пскове</p>
+                    </div>
+                </div>
+                <div class="profile_report-achievements-elem">
+                    <div class="achievements-elem_img">
+                        <img src="{% static 'img/medal.svg' %}" alt="">
+                    </div>
+                    <div class="achievements-elem_descr">
+                        <p class="achievements-elem_descr-title">Серебряннная медаль</p>
+                        <p class="achievements-elem_descr-text">2 место в Международном соревновании по баскетболу в г. Москве</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script>
+        var counterMenu = 0
+        function activateMenu(){
+            counterMenu++
+            if(counterMenu%2 == 0){
+                document.querySelector(".block_home-menu").style.display = 'none'
+            } else {
+                document.querySelector(".block_home-menu").style.display = 'block'
+            }
+        }
+    </script>
+{% endblock %}

@@ -76,3 +76,5 @@ class SectionDetail(DetailView):
         user_section.save()
         return redirect(f"/section/{pk}/")
 
+class Profile(TemplateView):
+    template_name = "page/profile.html"
