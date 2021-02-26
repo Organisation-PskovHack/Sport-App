@@ -35,21 +35,34 @@
             <div class="home_header-title">
                 <p>Клубы</p>
             </div>
-        </div>
+        </div> 
         <div class="club-elements">
-            <div class="club-elem" onclick="return window.location.href='/section/'">
+            {% for object in section_list %}
+            <div>
+            <h1>{{ object.title }}</h1>
+            <div>
+            {{ object.description|safe }}
+            </div>
+            {% if request.user.is_authenticated %}
+            <p><a href="/section/{{ object.id }}/">Подробнее</a></p>
+            {% endif %}
+            </div>
+            {% endfor %}
+            {% for object in section_list %}
+            <div class="club-elem" onclick="return window.location.href='/section/{{ object.id }}/'">
                 <div class="club-elem_ovner">
                     <div class="club-elem_img">
                         <img src="{% static 'img/basketball-ball.svg' %}" alt="">
                     </div>
                     <div class="club-elem_title">
-                        <p>Секция баскетбола</p>
+                        <p>{{ object.title }}</p>
                     </div>
                 </div>
                 <div class="club-elem_arrow">
                     <img src="{% static 'img/arrow_club.svg' %}" alt="">
                 </div>
             </div>
+            {% endfor %}
         </div>
     <script>
         var counterMenu = 0
