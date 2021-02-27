@@ -21,6 +21,11 @@ ____
 ```   
 *По умолчанию, если не создан config.json, используется Sqlite3*
 ____
-# Разработчики:    
+# Участники команды:    
 [Front-end разработчик](https://github.com/TabulaWeb)   
+[Дизайнер](https://www.instagram.com/iriflina_/)    
 [Back-end разработчик](https://github.com/nicstim)
+____
+# Дизайн:    
+[Figma](https://www.figma.com/file/ifUwZnoGegTNt0NAQsbhUb/Untitled?node-id=0%3A1)    
+[Презентация](https://docs.google.com/presentation/d/1jKBRHcv2I7TgOZj8jkx33I67Vn79otpQJMyFSAazpQ8/edit)
