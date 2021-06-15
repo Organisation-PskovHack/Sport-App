@@ -19,7 +19,7 @@ SECRET_KEY = str(config['secret_key'])
 
 # При False необходимо настроить nginx
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Используемые приложения
 INSTALLED_APPS = [

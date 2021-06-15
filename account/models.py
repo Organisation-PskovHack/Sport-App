@@ -1,15 +1,17 @@
 from django.contrib.auth.models import AbstractUser, UserManager
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.utils.translation import gettext_lazy as _
 
 
 class User(AbstractUser, UserManager):
-    group = models.CharField("Группа", max_length=130, blank=True)
-    description = RichTextUploadingField('Информая о пользователе', blank=True)
-    patronymic = models.CharField("Отчество", max_length=130, blank=True)
-    is_student = models.BooleanField("Это студент?", default=True, blank=False,
-                                     help_text="Убрать, если это преподаватель.")
-    qr_path = models.CharField("Путь к QR коду", blank=True, max_length=210)
+    role_choices = ((_("Администратор"), _("Администатор")),
+                    (_("Преподаватель"), _("Преподаватель")),
+                    (_("Студент"), _("Студент")),)
+    middle_name = models.CharField("Отчество", max_length=50, default='', blank=True)
+    faculty = models.CharField("Факультет", max_length=255, default='')
+    role = models.CharField("Роль пользователя", max_length=50, default=_("Студент"), choices=role_choices)
+    qr_path = models.TextField("Путь к QR-коду", default="")
 
     class Meta:
         verbose_name = "Пользователь"

@@ -12,7 +12,7 @@ class UserAdmin(admin.ModelAdmin):
     list_display_links = ('username',)
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
-        ("Основная информация", {'fields': ('first_name', 'last_name', 'patronymic', 'email', 'group')}),
-        ("Доступ", {'fields': ('is_student', 'is_active', 'is_staff', 'is_superuser',), }),
+        ("Основная информация", {'fields': ('first_name', 'last_name', 'middle_name', 'email', 'role')}),
+        ("Доступ", {'fields': ('is_active', 'is_staff', 'is_superuser',), }),
         ("Дополнительная информация", {'fields': ('last_login', 'date_joined')}),
     )
