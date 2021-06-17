@@ -10,7 +10,9 @@ class User(AbstractUser, UserManager):
                     (_("Студент"), _("Студент")),)
     middle_name = models.CharField("Отчество", max_length=50, default='', blank=True)
     faculty = models.CharField("Факультет", max_length=255, default='')
+    group_number = models.CharField("Номер группы", max_length=20, default="")
     role = models.CharField("Роль пользователя", max_length=50, default=_("Студент"), choices=role_choices)
+    image = models.ImageField("Фотография пользователя", upload_to="user/image", default='user/image/no-image.png')
     qr_path = models.TextField("Путь к QR-коду", default="")
 
     class Meta:

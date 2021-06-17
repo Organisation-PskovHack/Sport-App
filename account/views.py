@@ -11,6 +11,18 @@ class GetRoleView(APIView):
         serializer = UserSerializer(role)
         return Response(serializer.data, status=200)
 
+
+class EditUserView(APIView):
+    def post(self, request):
+        user = User.objects.get(id=init_user(request)).update(
+            first_name=request.data['first_name'],
+            last_name=request.data['last_name'],
+            middle_name=request.data['middle_name'],
+            faculty=request.data['faculty'],
+            group_number=request.data['group_number'],
+        ).save()
+        return Response(status=200)
+
 # from django.http import HttpResponse
 # from django.contrib.auth import authenticate, login
 # from django.shortcuts import redirect
